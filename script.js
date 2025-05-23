@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         helpBox.className = 'github-help';
         helpBox.innerHTML = `
             <h3>Обнаружено несколько ссылок</h3>
-            <p>QR-коды с несколькими ссылками могут не распознаваться некоторыми сканерами. Рекомендуем создать бесплатную веб-страницу со всеми вашими ссылками:</p>
+            <p>QR-коды с несколькими ссылками могут не распознаваться некоторыми сканерами. Рекомендуем создать бесплатную веб-страницу со всеми вашими ссылками.</p>
             <ol>
                 <li>Зарегистрируйтесь на <a href="https://github.com" target="_blank">GitHub</a> (если у вас еще нет аккаунта)</li>
                 <li>Создайте новый репозиторий с именем <strong>username.github.io</strong> (где username - ваше имя пользователя)</li>
@@ -80,8 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <li>Используйте ссылку https://username.github.io для создания QR-кода</li>
             </ol>
             <textarea class="html-content" readonly>${html}</textarea>
-            <button id="copy-html">Скопировать HTML</button>
-            <p>Также вы можете использовать другие бесплатные сервисы: <a href="https://neocities.org" target="_blank">Neocities</a>, <a href="https://pages.cloudflare.com" target="_blank">Cloudflare Pages</a>, <a href="https://firebase.google.com/docs/hosting" target="_blank">Firebase Hosting</a></p>
+            <button id="copy-html">Копировать HTML</button>
+            <p>Также вы можете использовать другие бесплатные сервисы:</p>
+            <ul>
+                <li><a href="https://neocities.org" target="_blank">Neocities</a></li>
+                <li><a href="https://pages.cloudflare.com" target="_blank">Cloudflare Pages</a></li>
+                <li><a href="https://firebase.google.com/docs/hosting" target="_blank">Firebase Hosting</a></li>
+            </ul>
         `;
         
         // Добавляем блок после секции QR-кода
@@ -95,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.execCommand('copy');
             this.textContent = 'Скопировано!';
             setTimeout(() => {
-                this.textContent = 'Скопировать HTML';
+                this.textContent = 'Копировать HTML';
             }, 2000);
         });
     }
@@ -108,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Мои социальные сети</title>
+            <title>Мои контакты</title>
             <style>
                 * {
                     box-sizing: border-box;
@@ -116,83 +121,81 @@ document.addEventListener('DOMContentLoaded', function() {
                     padding: 0;
                 }
                 body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-family: 'Times New Roman', Times, serif;
                     line-height: 1.6;
-                    color: #333;
-                    background-color: #f5f5f5;
-                    padding: 20px;
+                    color: #000;
+                    background-color: #fff;
+                    padding: 40px 20px;
                 }
                 .landing-page {
                     max-width: 600px;
                     margin: 0 auto;
                     background-color: #fff;
-                    border-radius: 10px;
-                    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-                    padding: 30px;
+                    padding: 0;
                 }
                 h1 {
                     text-align: center;
-                    margin-bottom: 30px;
-                    color: #2c3e50;
+                    margin-bottom: 50px;
+                    color: #000;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    font-weight: normal;
+                    font-size: 24px;
                 }
                 .social-links {
                     display: flex;
                     flex-direction: column;
-                    gap: 15px;
+                    gap: 10px;
                     margin-top: 30px;
+                    padding-top: 30px;
+                    border-top: 1px solid #eee;
                 }
                 .social-button {
                     display: block;
-                    padding: 15px 20px;
-                    background-color: #3498db;
-                    color: white;
+                    padding: 0;
+                    color: #000;
                     text-decoration: none;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: bold;
-                    transition: background-color 0.3s, transform 0.2s;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    font-size: 14px;
+                    transition: color 0.3s;
                 }
                 .social-button:hover {
-                    background-color: #2980b9;
-                    transform: translateY(-2px);
+                    color: #666;
                 }
-                .vk { background-color: #45668e; }
-                .vk:hover { background-color: #3a5a7d; }
-                .telegram { background-color: #0088cc; }
-                .telegram:hover { background-color: #007ab8; }
-                .instagram { background-color: #e1306c; }
-                .instagram:hover { background-color: #c13584; }
-                .facebook { background-color: #3b5998; }
-                .facebook:hover { background-color: #2d4373; }
-                .twitter { background-color: #1da1f2; }
-                .twitter:hover { background-color: #0c85d0; }
-                .website { background-color: #27ae60; }
-                .website:hover { background-color: #219d55; }
+                @media (max-width: 768px) {
+                    body {
+                        padding: 20px;
+                    }
+                    h1 {
+                        font-size: 20px;
+                    }
+                }
             </style>
         </head>
         <body>
             <div class="landing-page">
-                <h1>Мои социальные сети</h1>
+                <h1>Контакты</h1>
                 <div class="social-links">
         `;
         
         if (website) {
-            html += `<a href="${website}" class="social-button website" target="_blank">Мой веб-сайт</a>`;
+            html += `<a href="${website}" class="social-button website" target="_blank">Веб-сайт: ${website}</a>`;
         }
         if (vk) {
-            html += `<a href="${vk}" class="social-button vk" target="_blank">ВКонтакте</a>`;
+            html += `<a href="${vk}" class="social-button vk" target="_blank">ВКонтакте: ${vk}</a>`;
         }
         if (telegram) {
-            html += `<a href="${telegram}" class="social-button telegram" target="_blank">Telegram</a>`;
+            html += `<a href="${telegram}" class="social-button telegram" target="_blank">Telegram: ${telegram}</a>`;
         }
         if (instagram) {
-            html += `<a href="${instagram}" class="social-button instagram" target="_blank">Instagram</a>`;
+            html += `<a href="${instagram}" class="social-button instagram" target="_blank">Instagram: ${instagram}</a>`;
         }
         if (facebook) {
-            html += `<a href="${facebook}" class="social-button facebook" target="_blank">Facebook</a>`;
+            html += `<a href="${facebook}" class="social-button facebook" target="_blank">Facebook: ${facebook}</a>`;
         }
         if (twitter) {
-            html += `<a href="${twitter}" class="social-button twitter" target="_blank">Twitter</a>`;
+            html += `<a href="${twitter}" class="social-button twitter" target="_blank">Twitter: ${twitter}</a>`;
         }
         
         html += `
