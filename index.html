@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор QR-кодов для социальных сетей</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Генератор QR-кодов для социальных сетей</h1>
+        
+        <div class="info-box">
+            <p>Это приложение создает QR-код с прямыми ссылками на ваши социальные сети. При сканировании QR-кода пользователи увидят текст с вашими ссылками.</p>
+        </div>
+        
+        <div class="input-section">
+            <h2>Ваши ссылки на социальные сети</h2>
+            <div class="input-group">
+                <label for="website">Веб-сайт:</label>
+                <input type="text" id="website" placeholder="https://example.com">
+            </div>
+            <div class="input-group">
+                <label for="vk">ВКонтакте:</label>
+                <input type="text" id="vk" placeholder="https://vk.com/username">
+            </div>
+            <div class="input-group">
+                <label for="telegram">Telegram:</label>
+                <input type="text" id="telegram" placeholder="https://t.me/username">
+            </div>
+            <div class="input-group">
+                <label for="instagram">Instagram:</label>
+                <input type="text" id="instagram" placeholder="https://instagram.com/username">
+            </div>
+            <div class="input-group">
+                <label for="facebook">Facebook:</label>
+                <input type="text" id="facebook" placeholder="https://facebook.com/username">
+            </div>
+            <div class="input-group">
+                <label for="twitter">Twitter:</label>
+                <input type="text" id="twitter" placeholder="https://twitter.com/username">
+            </div>
+            
+            <button id="generate-btn">Сгенерировать QR-код</button>
+        </div>
+        
+        <div class="output-section">
+            <div class="qr-container">
+                <h2>Ваш QR-код</h2>
+                <div id="qrcode"></div>
+                <a id="download-link" download="social-media-qr.png" href="#" class="hidden">Скачать QR-код</a>
+                <p class="note">QR-код содержит прямой текст с вашими ссылками.<br>Его можно сканировать с любого устройства.</p>
+            </div>
+            <div class="landing-page-preview">
+                <h2>Предпросмотр HTML-страницы</h2>
+                <div id="preview-container"></div>
+                <p class="note">HTML-файл автоматически сохранится при генерации QR-кода.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
